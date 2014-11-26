@@ -1,0 +1,38 @@
+services:
+    wolfsblvt.core.listener:
+        class: wolfsblvt\core\event\listener
+        arguments:
+            - @path_helper
+            - @template
+            - @user
+            - %core.php_ext%
+        tags:
+            - { name: event.listener }
+    wolfsblvt.core.core:
+        class: wolfsblvt\core\core\core
+        arguments:
+            - @ext.manager
+            - @config
+            - @dbal.conn
+            - @request
+            - @template
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
+    wolfsblvt.core.formatter:
+        class: wolfsblvt\core\core\formatter
+        arguments:
+            - @wolfsblvt.core.core
+            - @config
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
+    wolfsblvt.core.requirements_helper:
+        class: wolfsblvt\core\core\requirements_helper
+        arguments:
+            - @wolfsblvt.core.core
+            - @ext.manager
+            - @config
+            - @dbal.conn
+            - @template
+            - @user

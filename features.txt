@@ -1,0 +1,8 @@
+﻿Current Features
+****************
+	• Managing extension requirements, full validation
+	• Including script libraries
+
+Planned Features
+****************
+	• Nothing
